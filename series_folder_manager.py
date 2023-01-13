@@ -13,9 +13,9 @@ class FolderManager:
         self.the_file = the_file
         self.name = name
         self.sn = sn
-        self.series_path = "/home/joe/Videos/series"
+        self.series_path = Path("/home/joe/Videos/series")      # this is a posix path not str
 
-    def create_folder(self):
+    def video_folder_creator(self):
         """
         series_path is set to parent folder where the files will be stored
         check if exist.if it exist, the folders are not created
@@ -24,9 +24,14 @@ class FolderManager:
         :return: returns the path of the folder created
         # todo: this code should be set as PRIVATE
         """
-
         os.chdir(self.series_path)
         if self.sn is None:
+            vp = Path.cwd()/"my_videos"
+            if vp.exists():
+                return Path.cwd()/"my_videos"
+            else:
+                os.makedirs("my_videos")
+                return Path.cwd()/"my_videos"
             return Path.cwd()/"my_videos"
         else:
             p = Path.cwd()/self.name/self.sn
@@ -36,13 +41,23 @@ class FolderManager:
                 os.makedirs(self.name + "/" + self.sn)
                 return str(Path.cwd()/self.name/self.sn)
 
-    def transfer_file(self):
+    def video_transfer_file(self):
         """
         takes in the file_source+fileName and the destination
         :return: true if the file has been transferred
         # todo: confirm if the file file exist, does it get replaced?
         """
-        shutil.copy("/home/joe/Downloads/"+self.the_file, self.create_folder())
+        print("moving " + self.the_file + " to " + str(self.video_folder_creator()) + "...")
+        # todo: use a the Path to work both on windows and linux
+        src = "/home/joe/Downloads/" + self.the_file
+        destination = str(self.video_folder_creator())
+        shutil.copy(src, destination)
         return True
+
+    def doc_folder_creator(self):
+        pass
+
+    def doc_folder_transfer(self):
+        pass
 
 

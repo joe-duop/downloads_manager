@@ -31,5 +31,5 @@ if __name__ == '__main__':
         sn = file_name.get_season()
 
         # creating the folders and transferring the file
-        FolderManager(file, name, sn).transfer_file()
+        FolderManager(file, name, sn).video_transfer_file()
 

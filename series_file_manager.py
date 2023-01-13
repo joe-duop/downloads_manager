@@ -2,7 +2,7 @@
 import re
 
 """
-this class is for getting the name of the series
+this class is for getting the name of the series/video
 """
 
 
