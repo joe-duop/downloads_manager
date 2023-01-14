@@ -5,13 +5,11 @@ import shutil
 
 from folder_manager import transfer
 
-"""
-this class is for getting the name of the series/video
-"""
-
 
 class SeriesManager:
     """
+    this class is for getting the name of the series/video
+
     works on the following string samples :
     Gangs.of.London.S02.COMPLETE.720p.WEBRip.x264-GalaxyTV[TGx]
     and :
@@ -75,12 +73,12 @@ class FolderManager:
         the_file - the name of the file + extention
         name example -  Love Death and Robots
         season example - S03
-        default absolute path - /home/joe/Videos/series
+        default absolute src_path - /home/joe/Videos/series
         video_path is set to parent folder where the files will be stored
         check if exist.if it exist, the folders are not created
-        both if and else returns the same path
-        is sn is null then cwd/my_videos path is returned
-        :return: returns the path of the folder created
+        both if and else returns the same src_path
+        is sn is null then cwd/my_videos src_path is returned
+        :return: returns the src_path of the folder created
         # todo: this code should be set as PRIVATE
         """
         os.chdir(self.video_path)

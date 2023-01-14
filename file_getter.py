@@ -2,19 +2,23 @@ import os
 
 """
 this file is for getting a list of specific file types
+
+function of getting all the files in the download folder
+it goes to the downloads' folder
+gets the list of all the files of a specific type and put them in a list
+:return: the list of a certain filetype in  the /Downloads folder
 """
+src_path = "/home/joe/Downloads"
+a = list(os.walk(src_path))
 
 
 def getfiles(file_type):
     """
-    # todo: this function should be set to private
-    function of getting all the video files in the download folder
-    it goes to the downloads' folder
-    gets the list of all the files of a specific type and put them in a list
-    :return: the list of a certain filetype in  the /Downloads folder
+    this is a general function that gets a list of files
+    it ignores all the folders even if there are folders with file
+    :param file_type: a str of the file extension eg .mp4 .png .mp3
+    :return:
     """
-    path = "/home/joe/Downloads"
-    a = list(os.walk(path))
     file_list = []
     for i, theFile in enumerate(
             a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
@@ -24,12 +28,18 @@ def getfiles(file_type):
 
 
 def get_zip_files():
+    """
+    get all the zip files
+    :return: a list of zip files that are found
+    """
     return getfiles(".zip")
 
 
 def get_document_files():
-    path = "/home/joe/Downloads"
-    a = list(os.walk(path))
+    """
+    gets all the pdfs, docx, xlsx files
+    :return: a list of pdfs, docx, xlsx files
+    """
     file_list = []
     for i, theFile in enumerate(
             a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
@@ -43,8 +53,10 @@ def get_document_files():
 
 
 def get_image_files():
-    path = "/home/joe/Downloads"
-    a = list(os.walk(path))
+    """
+    gets all the JPG, jpg, png files
+    :return: a list of JPG, jpg, png files
+    """
     file_list = []
     for i, theFile in enumerate(
             a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
@@ -58,8 +70,10 @@ def get_image_files():
 
 
 def get_video_files():
-    path = "/home/joe/Downloads"
-    a = list(os.walk(path))
+    """
+    gets all the mp4, mkv, webM, MOV files
+    :return: a list of mp4, mkv, webM, MOV files
+    """
     file_list = []
     for i, theFile in enumerate(
             a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
@@ -75,8 +89,10 @@ def get_video_files():
 
 
 def get_audio_files():
-    path = "/home/joe/Downloads"
-    a = list(os.walk(path))
+    """
+    gets all the mp3, flac files
+    :return: a list of mp3, flac files
+    """
     file_list = []
     for i, theFile in enumerate(
             a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
@@ -85,4 +101,3 @@ def get_audio_files():
         elif theFile.endswith(".flac"):
             file_list.append(theFile)
     return file_list
-
