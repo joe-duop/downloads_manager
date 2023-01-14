@@ -6,7 +6,7 @@ import file_getter
 
 
 if __name__ == '__main__':
-    myFiles = file_getter.get_mp4_files()
+    myFiles = file_getter.get_video_file()
     for file in myFiles:
         file_name = SeriesManager(file)
 

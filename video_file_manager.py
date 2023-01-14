@@ -3,6 +3,8 @@ import os
 from pathlib import Path
 import shutil
 
+from folder_manager import transfer
+
 """
 this class is for getting the name of the series/video
 """
@@ -66,8 +68,7 @@ class FolderManager:
         self.the_file = the_file
         self.name = name
         self.sn = sn
-        self.video_path = Path("/home/joe/Videos/series")
-        self.audio_path = Path("/home/joe/Music")
+        self.video_path = Path("/home/joe/Videos")
 
     def video_folder_creator(self):
         """
@@ -109,6 +110,5 @@ class FolderManager:
         # todo: use a the Path to work both on windows and linux
         src = "/home/joe/Downloads/" + self.the_file
         destination = str(self.video_folder_creator())
-        print(self.the_file)
-        shutil.copy(src, destination)
+        transfer(src, destination)
         return True
