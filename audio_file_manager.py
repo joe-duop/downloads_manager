@@ -1,4 +1,4 @@
-from folder_manager import folder_creator, audio_folder_creator, transfer
+from folder_manager import audio_folder_creator, transfer
 
 
 class AudioManager:
@@ -9,8 +9,8 @@ class AudioManager:
 
     def audio_transfer(self):
         f = audio_folder_creator("my_music")
-        transfer(self.src, f)
+        transfer(self.the_file, self.src, f)
         if self.the_file.endswith(".mp3"):
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)
         elif self.the_file.endswith(".flac"):
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)

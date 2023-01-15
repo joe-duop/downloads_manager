@@ -53,8 +53,10 @@ def image_folder_creator(folder_name):
     return folder_creator(folder_name, image_path)
 
 
-def transfer(src, dest):
+def transfer(file, src, dest):
     """
     used for transferring files
+    :param file: the name of the file
     """
+    print("\tmoving " + file + "...")
     shutil.copy(src, dest)

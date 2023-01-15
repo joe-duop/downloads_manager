@@ -37,8 +37,8 @@ def get_zip_files():
 
 def get_document_files():
     """
-    gets all the pdfs, docx, xlsx files
-    :return: a list of pdfs, docx, xlsx files
+    gets all the pdfs, docx, xlsx, zip files
+    :return: a list of pdfs, docx, zip xlsx files
     """
     file_list = []
     for i, theFile in enumerate(
@@ -48,6 +48,8 @@ def get_document_files():
         elif theFile.endswith(".docx"):
             file_list.append(theFile)
         elif theFile.endswith(".xlsx"):
+            file_list.append(theFile)
+        elif theFile.endswith(".zip"):
             file_list.append(theFile)
     return file_list
 
@@ -101,3 +103,7 @@ def get_audio_files():
         elif theFile.endswith(".flac"):
             file_list.append(theFile)
     return file_list
+
+# todo: create variables that carry the return lists
+# e.g. DOC_FILE = get_document_files()
+# in main method: doc_files = DOC_FILE

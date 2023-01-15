@@ -104,9 +104,8 @@ class FolderManager:
         :return: true if the file has been transferred
         # todo: confirm if the file file exist, does it get replaced?
         """
-        print("moving " + self.the_file + " to " + str(self.video_folder_creator()) + "...")
         # todo: use a the Path to work both on windows and linux
         src = "/home/joe/Downloads/" + self.the_file
         destination = str(self.video_folder_creator())
-        transfer(src, destination)
+        transfer(self.the_file, src, destination)
         return True

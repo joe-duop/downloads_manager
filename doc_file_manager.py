@@ -19,13 +19,13 @@ class DocumentManager:
 
         if self.the_file.endswith(".zip"):
             f = doc_folder_creator("zip_files")
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)
         elif self.the_file.endswith(".docx"):
             f = doc_folder_creator("word_files")
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)
         elif self.the_file.endswith(".pdf"):
             f = doc_folder_creator("pdf_files")
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)
         elif self.the_file.endswith(".xlsx"):
             f = doc_folder_creator("excel_files")
-            transfer(self.src, f)
+            transfer(self.the_file, self.src, f)
