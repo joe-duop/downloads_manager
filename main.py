@@ -47,6 +47,11 @@ def sort_videos():
 
 
 if __name__ == '__main__':
+    """
+    shutil.Error: Destination path '/home/joe/Documents/excel_files/example.xlsx' already exists
+    this error occurs after changing from copy to move
+    """
+    # todo: if the file exists...ask for replacement or just ignore
     sort_documents()
     sort_images()
     sort_audios()

@@ -59,4 +59,4 @@ def transfer(file, src, dest):
     :param file: the name of the file
     """
     print("\tmoving " + file + "...")
-    shutil.copy(src, dest)
+    shutil.move(src, dest)
