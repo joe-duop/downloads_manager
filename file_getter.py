@@ -1,19 +1,27 @@
 import os
+from pathlib import Path
 
+import main
+
+# todo: simplify this whole file
 """
+
 this file is for getting a list of specific file types
 
 function of getting all the files in the download folder
 it goes to the downloads' folder
 gets the list of all the files of a specific type and put them in a list
-:return: the list of a certain filetype in  the /Downloads folder
+ex: doc files, music files, etc
+:return: the list of a certain filetype from  the /Downloads folder
+NOTE: you can add the available filetype that havent been included in this program here
 """
-src_path = "/home/joe/Downloads"
-a = list(os.walk(src_path))
+SRC_PATH = main.SRC_PATH
+downloadStuff = list(os.walk(SRC_PATH))  # gets every file and folder in that directory
 
 
 def getfiles(file_type):
     """
+    todo: set this as private
     this is a general function that gets a list of files
     it ignores all the folders even if there are folders with file
     :param file_type: a str of the file extension eg .mp4 .png .mp3
@@ -21,7 +29,7 @@ def getfiles(file_type):
     """
     file_list = []
     for i, theFile in enumerate(
-            a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
+            downloadStuff[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
         if theFile.endswith(file_type):
             file_list.append(theFile)
     return file_list
@@ -42,7 +50,7 @@ def get_document_files():
     """
     file_list = []
     for i, theFile in enumerate(
-            a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
+            downloadStuff[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
         if theFile.endswith(".pdf"):
             file_list.append(theFile)
         elif theFile.endswith(".docx"):
@@ -61,7 +69,7 @@ def get_image_files():
     """
     file_list = []
     for i, theFile in enumerate(
-            a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
+            downloadStuff[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
         if theFile.endswith(".jpg"):
             file_list.append(theFile)
         elif theFile.endswith(".JPG"):
@@ -78,7 +86,7 @@ def get_video_files():
     """
     file_list = []
     for i, theFile in enumerate(
-            a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
+            downloadStuff[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
         if theFile.endswith(".mp4"):
             file_list.append(theFile)
         elif theFile.endswith(".mkv"):
@@ -97,13 +105,16 @@ def get_audio_files():
     """
     file_list = []
     for i, theFile in enumerate(
-            a[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
+            downloadStuff[0][-1]):  # -1 for getting the last list 0- for getting only the files in/home/joe/Downloads
         if theFile.endswith(".mp3"):
             file_list.append(theFile)
         elif theFile.endswith(".flac"):
             file_list.append(theFile)
     return file_list
 
-# todo: create variables that carry the return lists
-# e.g. DOC_FILE = get_document_files()
-# in main method: doc_files = DOC_FILE
+
+DOC_FILE = get_document_files()
+ZIP_FILES = get_zip_files()
+AUDIO_FILES = get_audio_files()
+IMAGE_FILES = get_image_files()
+VIDEO_FILES = get_video_files()
