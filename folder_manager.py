@@ -119,9 +119,24 @@ IMAGE_FOLDER_CREATOR = image_folder_creator("my_images")
 def transfer(file, src, dest):
     """
     used for transferring files
+    check if the file exists in the destination
+    if it does, a user should choose to replace or skip
     :param dest:
     :param src:
     :param file: the name of the file
     """
-    print("\tmoving " + file + "...")
-    shutil.copy(src, dest)  # change to move in production
+    existing_dest = dest / file
+    if existing_dest.exists():
+        print("do you want to replace the file in the destination?")
+        print("answer Yes or No")
+        ans = input()
+        ans = ans.title()
+        if ans == "No":
+            pass
+        if ans == "Yes":
+            os.remove(existing_dest)
+            print("\tmoving " + file + "...")
+            shutil.move(src, dest)
+    else:
+        print("\tmoving " + file + "...")
+        shutil.move(src, dest)

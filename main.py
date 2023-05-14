@@ -3,7 +3,7 @@ from file_manager import *
 import file_getter
 
 # here you specify the folder which you want to sort the files
-SRC_PATH = Path.home() / "Desktop" / "series"    # used in the file getter
+SRC_PATH = Path.home() / "Downloads"   # used in the file getter
 
 
 def sort_documents():
